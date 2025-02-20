@@ -43,6 +43,7 @@ jobs:
           echo "DB_USER=${{ secrets.DB_USER }}" >> .env
           echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> .env
           echo "PORT=${{ secrets.PORT }}" >> .env
+          echo "PORT=${{ secrets.PORT }}"
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
