@@ -1,0 +1,168 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url("https://muralsyourway.vtexassets.com/arquivos/ids/234547/San-Francisco-Skyline-Mural-Wallpaper.jpg?v=638164625347630000");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100vw;
+    height: 100vh;
+}
+
+.app-container {
+    padding-top: 50px;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #2a2a2a;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 2.5em;
+}
+
+h2 {
+    text-align: center;
+    color: #ffffff;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #bbbbbb;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 12px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #333;
+    color: #e0e0e0;
+    font-size: 16px;
+}
+
+button {
+    background: linear-gradient(to right, #3b82f6, #9333ea);
+    border: none;
+    padding: 12px 15px;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease, opacity 0.3s ease;
+    font-weight: bold;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:disabled {
+    background: linear-gradient(to right, #b8b8b8, #a1a1a1);
+    color: #d1d1d1;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+button:enabled {
+    background: linear-gradient(to right, #3b82f6, #9333ea);
+    color: white;
+    opacity: 1;
+    animation: lightUp s ease-in-out;
+}
+
+@keyframes lightUp {
+    0% {
+        background: linear-gradient(to right, #3b82f6, #9333ea);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    30% {
+        background: linear-gradient(to right, #3b82f6, #6ee7b7);
+        /* Lighten the gradient */
+        box-shadow: 0px 6px 15px rgba(0, 123, 255, 0.3);
+        /* Increase shadow */
+    }
+
+    60% {
+        background: linear-gradient(to right, #6ee7b7, #9333ea);
+        /* Further shift the gradient */
+        box-shadow: 0px 8px 20px rgba(0, 123, 255, 0.5);
+        /* Larger shadow */
+    }
+
+    100% {
+        background: linear-gradient(to right, #3b82f6, #9333ea);
+        /* Reset to original gradient */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        /* Reset to initial shadow */
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    button {
+        font-size: 14px;
+    }
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,119 @@
+/* App.css */
+
+/* General body styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #1e1e1e;
+  background-image: url('https://muralsyourway.vtexassets.com/arquivos/ids/234547/San-Francisco-Skyline-Mural-Wallpaper.jpg?v=638164625347630000');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #e0e0e0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Slightly transparent to overlay */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Header */
+header {
+  background-color: #34495e;
+  /* Dark blue color */
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+header .logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+header nav {
+  margin-top: 15px;
+}
+
+header nav a {
+  margin: 0 15px;
+  color: white;
+  text-decoration: none;
+}
+
+header nav a:hover {
+  color: #3498db;
+}
+
+/* Footer */
+footer {
+  background-color: #34495e;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Forms and Buttons */
+button {
+  background: linear-gradient(to right, #3b82f6, #9333ea);
+  /* Blue to Purple */
+  padding: 12px 15px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 600px) {
+  .main-content {
+    padding: 10px;
+  }
+
+  header {
+    padding: 10px;
+  }
+
+  header .logo {
+    font-size: 1.5rem;
+  }
+
+  button {
+    font-size: 14px;
+  }
+}

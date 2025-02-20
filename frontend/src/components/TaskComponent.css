@@ -1,0 +1,170 @@
+.task-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #2a2a2a;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+.task-container h1 {
+    text-align: center;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.8em;
+}
+
+.task-container .form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.task-container .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.task-container label {
+    margin-bottom: 5px;
+    color: #bbbbbb;
+    font-size: 14px;
+}
+
+.task-container input[type="text"],
+.task-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #333;
+    color: #e0e0e0;
+    font-size: 16px;
+}
+
+.task-container button {
+    background: linear-gradient(to right, #3b82f6, #9333ea);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    margin-right: 10px;
+}
+
+.task-container button:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.task-container button:active {
+    transform: scale(0.98);
+}
+
+.task-container button.delete {
+    background: linear-gradient(to right, #ef4444, #dc2626);
+}
+
+@media (max-width: 600px) {
+    .task-container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .task-container input[type="text"],
+    .task-container select,
+    .task-container button {
+        font-size: 14px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.task-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+
+.task-card {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.task-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.task-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.task-card input,
+.task-card select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+.task-card button {
+    background: linear-gradient(to right, #3b82f6, #9333ea);
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.task-card button:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.task-card button:active {
+    transform: scale(0.98);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .task-board {
+        grid-template-columns: 1fr;
+    }
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    /* Adds space between buttons */
+}
