@@ -1,119 +1,130 @@
-# Full-Stack Coding Challenge
-
-**Deadline**: Sunday, Feb 23th 11:59 pm PST
-
----
+# Task Management Application
 
 ## Overview
 
-Create a “Task Management” application with **React + TypeScript** (frontend), **Node.js** (or **Nest.js**) (backend), and **PostgreSQL** (database). The application should:
+A full-stack Task Management application with authentication and task CRUD functionality.
 
-1. **Register** (sign up) and **Log in** (sign in) users.
-2. After logging in, allow users to:
-   - **View a list of tasks**.
-   - **Create a new task**.
-   - **Update an existing task** (e.g., mark complete, edit).
-   - **Delete a task**.
-
-Focus on **correctness**, **functionality**, and **code clarity** rather than visual design.  
-This challenge is intended to be completed within ~3 hours, so keep solutions minimal yet functional.
+- **Frontend**: React + TypeScript
+- **Backend**: Node.js + PostgreSQL
+- **Authentication**: JWT for user sessions
 
 ---
 
-## Requirements
+## Project Structure
 
-### 1. Authentication
-
-- **User Model**:
-  - `id`: Primary key
-  - `username`: Unique string
-  - `password`: Hashed string
-- **Endpoints**:
-  - `POST /auth/register` – Create a new user
-  - `POST /auth/login` – Login user, return a token (e.g., JWT)
-- **Secure the Tasks Routes**: Only authenticated users can perform task operations.  
-  - **Password Hashing**: Use `bcrypt` or another hashing library to store passwords securely.
-  - **Token Verification**: Verify the token (JWT) on each request to protected routes.
-
-### 2. Backend (Node.js or Nest.js)
-
-- **Tasks CRUD**:  
-  - `GET /tasks` – Retrieve a list of tasks (optionally filtered by user).  
-  - `POST /tasks` – Create a new task.  
-  - `PUT /tasks/:id` – Update a task (e.g., mark as complete, edit text).  
-  - `DELETE /tasks/:id` – Delete a task.
-- **Task Model**:
-  - `id`: Primary key
-  - `title`: string
-  - `description`: string (optional)
-  - `isComplete`: boolean (default `false`)
-  - _(Optional)_ `userId` to link tasks to the user who created them
-- **Database**: PostgreSQL
-  - Provide instructions/migrations to set up:
-    - `users` table (with hashed passwords)
-    - `tasks` table
-- **Setup**:
-  - `npm install` to install dependencies
-  - `npm run start` (or `npm run dev`) to run the server
-  - Document any environment variables (e.g., database connection string, JWT secret)
-
-### 3. Frontend (React + TypeScript)
-
-- **Login / Register**:
-  - Simple forms for **Register** and **Login**.
-  - Store JWT (e.g., in `localStorage`) upon successful login.
-  - If not authenticated, the user should not see the tasks page.
-- **Tasks Page**:
-  - Fetch tasks from `GET /tasks` (including auth token in headers).
-  - Display the list of tasks.
-  - Form to create a new task (`POST /tasks`).
-  - Buttons/fields to update a task (`PUT /tasks/:id`).
-  - Button to delete a task (`DELETE /tasks/:id`).
-- **Navigation**:
-  - Show `Login`/`Register` if not authenticated.
-  - Show `Logout` if authenticated.
-- **Setup**:
-  - `npm install` then `npm start` (or `npm run dev`) to run.
-  - Document how to point the frontend at the backend (e.g., `.env` file, base URL).
+```
+/root
+│
+├── backend
+│   ├── index.js
+│   ├── package.json
+│   ├── .env
+│   └── ...
+│
+├── frontend
+│   ├── src
+│   ├── package.json
+│   ├── .env
+│   └── ...
+├── README.md
+```
 
 ---
 
-## Deliverables
+## Backend Setup
 
-1. **Fork the Public Repository**: **Fork** this repo into your own GitHub account.
-2. **Implement Your Solution** in the forked repository. Make sure you're README file has:
-   - Steps to set up the database (migrations, environment variables).
-   - How to run the backend.
-   - How to run the frontend.
-   - Any relevant notes on testing.
-   - Salary Expectations per month (Mandatory)
-3. **Short Video Demo**: Provide a link (in a `.md` file in your forked repo) to a brief screen recording showing:
-   - Registering a user
-   - Logging in
-   - Creating, updating, and deleting tasks
-4. **Deadline**: Submissions are due **Sunday, Feb 23th 11:59 pm PST**.
+### Environment Variables (Backend)
 
-> **Note**: Please keep your solution minimal. The entire project is intended to be completed in around 3 hours. Focus on core features (registration, login, tasks CRUD) rather than polished UI or extra features.
+Create a `.env` file in the `backend` directory with the following:
+
+```
+PORT=8000
+
+DB_USER="your db user"
+DB_HOST=localhost
+DB_NAME="your db name"
+DB_PASSWORD="your db pw"
+DB_PORT=5432
+
+
+JWT_SECRET=abf8028dd5862cca9a462f901f4e09a60ac5344212cc8cc8db602af64ab96042
+```
+
+**Note:** Replace credentials as needed!
+
+### Install Dependencies
+
+```bash
+cd backend
+npm install
+```
+
+### Run Migrations
+
+```bash
+npx npm install
+```
+
+### Start the Server
+
+```bash
+node index.js
+```
+
+The server should be running on `http://localhost:8000`.
 
 ---
 
-## Evaluation Criteria
+## Frontend Setup
 
-1. **Functionality**  
-   - Does registration and login work correctly (with password hashing)?
-   - Are tasks protected by authentication?
-   - Does the tasks CRUD flow work end-to-end?
+### Environment Variables (Frontend)
 
-2. **Code Quality**  
-   - Is the code structured logically and typed in TypeScript?
-   - Are variable/function names descriptive?
+Create a `.env` file in the `frontend` directory with the following:
 
-3. **Clarity**  
-   - Is the `README.md` (in your fork) clear and detailed about setup steps?
-   - Easy to run and test?
+```
+VITE_BACKEND_URL=http://localhost:8000
+```
 
-4. **Maintainability**  
-   - Organized logic (controllers/services, etc.)
-   - Minimal hard-coded values
+**Note:** Ensure this URL matches your backend server.
 
-Good luck, and we look forward to your submission!
+### Install Dependencies
+
+```bash
+cd frontend
+npm install
+```
+
+### Start the Frontend
+
+```bash
+npm run dev
+```
+
+The frontend should be running on `http://localhost:5173` (default Vite port).
+
+---
+
+## Demo Video
+
+[Link to Demo Video](#)  
+
+![JWT Flowchart](/github_assets/Screenshot%202025-02-20%20at%2012.16.57.png)
+
+
+---
+
+## Salary Expectations
+
+$4000 USD ~ $5200 USD Monthly
+
+---
+
+## Submission
+
+1. **Fork** this repository.
+2. Implement the solution in your fork.
+3. Create a pull request before the deadline: **Sunday, Feb 23th, 11:59 PM PST**.
+
+---
+
+
