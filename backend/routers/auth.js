@@ -27,6 +27,7 @@ authRoutes.post("/register", async (req, res) => {
             [username, hashedPassword]
         );
 
+
         const jwt_token = jwt.sign(
             { userId: newUser.rows[0].id, username: newUser.rows[0].username },
             process.env.JWT_SECRET,
