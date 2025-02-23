@@ -42,7 +42,7 @@ authRoutes.post("/register", async (req, res) => {
             res.status(409).json({ error: "Username already exists" });
         } else {
             console.error(err.message);
-            res.status(500).send("Server error");
+            res.status(500).send("Server error: Can Not Register");
         }
     }
 });
@@ -81,7 +81,7 @@ authRoutes.post("/login", async (req, res) => {
 
     } catch (err) {
         console.error(err.message);
-        res.status(500).send("Server error");
+        res.status(500).send("Server error: Login Fail");
     }
 });
 

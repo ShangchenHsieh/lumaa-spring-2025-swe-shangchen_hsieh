@@ -49,9 +49,8 @@ taskRoutes.post("/", authenticateToken, async (req, res) => {
             "INSERT INTO tasks (title, description, is_complete, user_id) VALUES ($1, $2, $3, $4) RETURNING *",
             [title, description, false, req.user.userId]
         );
-        res.status(201).json(newTask.rows[0]);
+        res.status(201).json({ "message": "success" });
     } catch (err) {
-        console.error(err.message);
         res.status(500).send("Server error");
     }
 });
