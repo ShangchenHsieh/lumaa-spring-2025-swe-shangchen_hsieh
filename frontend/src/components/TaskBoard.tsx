@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Task from "./Task";
 import TaskForm from "./TaskForm";
-
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-
 interface TaskType {
     id: number;
     title: string;
@@ -32,13 +30,24 @@ const TaskBoard: React.FC = () => {
         }
     };
 
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        window.location.href = "/login"
+    };
+
     useEffect(() => {
         fetchTasks();
     }, []);
 
+
+
     return (
         <div className="task-board">
-            <TaskForm />
+            <div className="task-board-header">
+                <h1>Task Board</h1>
+                <button className="logout-button" onClick={handleLogout}>Logout</button>
+            </div>
+            <TaskForm onTaskCreated={fetchTasks} />
             {tasks.map((task) => (
                 <Task key={task.id} task={task} />
             ))}

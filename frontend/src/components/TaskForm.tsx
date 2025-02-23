@@ -3,7 +3,7 @@ import "./TaskComponent.css";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
-const TaskForm: React.FC<{ onTaskCreated: () => void }> = ({ onTaskCreated }) => {
+const TaskForm: React.FC<{ onTaskCreated?: () => void }> = ({ onTaskCreated = () => { } }) => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
 
@@ -20,14 +20,18 @@ const TaskForm: React.FC<{ onTaskCreated: () => void }> = ({ onTaskCreated }) =>
                 body: JSON.stringify({ title, description }),
             });
 
+            console.log(response);
+
             if (!response.ok) {
                 throw new Error("Failed to create task");
             }
+
             setTitle("");
             setDescription("");
             onTaskCreated();
+            window.location.reload();
         } catch (error) {
-            alert("Error creating task");
+            console.error("Error creating task:", error);
         }
     };
 

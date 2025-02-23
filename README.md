@@ -31,6 +31,29 @@ A full-stack Task Management application with authentication and task CRUD funct
 
 ---
 
+
+
+## Database Setup
+
+```SQL
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password TEXT NOT NULL
+);
+
+CREATE TABLE tasks (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    is_complete BOOLEAN DEFAULT FALSE,
+    user_id INT REFERENCES users(id) ON DELETE CASCADE
+);
+
+```
+
+___
+
 ## Backend Setup
 
 ### Environment Variables (Backend)
@@ -106,7 +129,7 @@ The frontend should be running on `http://localhost:5173` (default Vite port).
 
 ## Demo Video
 
-[Link to Demo Video](#)  
+[![Lumaa Demo](https://cdn.wccftech.com/wp-content/uploads/2016/08/YouTube.png)](https://youtu.be/TJtyDLGBN5g)
 
 ![JWT Flowchart](/github_assets/Screenshot%202025-02-20%20at%2012.16.57.png)
 
